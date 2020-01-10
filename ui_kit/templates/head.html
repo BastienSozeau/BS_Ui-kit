@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	{% load static %}
+	{% load sass_tags %}
+	<title>BS Ui Kit</title>
+	<meta name="keywords" content="BS Ui Kit" />
+	<meta name="description" content="A simple website showcasting a minimal Ui library" />
+	<meta name="author" content="Bastien Sozeau" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 minimal-ui">
+	<meta property="og:image" content="{% static 'img/screenshot.png' %}"/>
+	<meta property="og:title" content="BS Ui Kit"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="http://ui.sozoo.fr/"/>
+	<link rel="icon" href="{% static 'img/favicon.png' %}" />
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,800,800i|Public+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/site-style.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/prism.css' %}">
+	<link href="{% sass_src 'sass/style-1.sass' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<header id="header">
+		<div class="logo">BS_Ui-kit</div>		
+		<nav class="menu">
+			<ul>
+				<li><a href="/admin">Dashboard</a></li>
+				<li><a href="/">Homepage</a></li>
+				<li><a href="https://github.com/BastienSozeau/BS_Ui-kit" target="_blank">Github</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div class="wrapper">
+		{% block page_content %}{% endblock %}
+	</div>
+{% include "footer.html" %}

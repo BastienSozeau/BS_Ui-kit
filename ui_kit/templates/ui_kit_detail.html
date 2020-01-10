@@ -1,0 +1,18 @@
+{% extends "head.html" %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>{{ post.title }}</h1>
+    <small>
+        {{ post.created_on.date }} |&nbsp;
+        Categories:&nbsp;
+        {% for category in post.categories.all %}
+        <a href="{% url 'boot_rules_category' category.name %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ post.body | safe }}</p>
+    <p>{{ post.elements | safe }}</p>
+    <p>{{ post.scss | linebreaks }}</p>
+</div>
+{% endblock %}

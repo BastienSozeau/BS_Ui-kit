@@ -1,0 +1,20 @@
+{% extends "head.html" %}
+{% block page_content %}
+	<div class="menu_rules">
+		<ul>
+	{% for post in posts %}
+			<li><a href="#{{ post.title | slugify }}">{{ post.title }}</a></li>
+	{% endfor %}
+		</ul>
+	</div>
+	{% for post in posts %}
+	<div class="post-card" id="{{ post.title | slugify }}">
+		<h3>{{ post.title }}</h3>
+		<p>{{ post.body | safe }}</p>
+		<p>{{ post.elements | safe }}</p>
+		{% if post.scss %}
+			<pre><code class="language-sass">{{ post.scss }}</code></pre>
+		{% endif %}
+	</div>
+	{% endfor %}
+{% endblock %}
